@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ediList>
+  <edi name="02822" sub="" desc="轉帳阿">
+    <request>
+      <header h1="h1" h2="h2" h3="h3" h4="h4"/>
+      <payload>
+        <item name="item01"   type="System.String"    length="10"   data="" format ="" charset="big5" desc="欄位一"/>
+        <item name="item02"   type="System.Decimal"   length="9,2"  data="" format ="" charset=""     desc="欄位二"/>
+        <item name="item03"   type="System.Int32"     length="9"    data="" format ="" charset=""     desc="欄位三"/>
+        <item name="item04"   type="System.Char"      length="1"    data="" format ="" charset=""     desc="欄位四"/>
+        <item name="item05"   type="System.DateTime"  length="6"    data="" format ="yyMMdd" charset=""     desc="欄位五"/>
+        <item name="item05_1" type="System.DateTime"  length="8"    data="" format ="yyyyMMdd" charset=""     desc="欄位五_1"/>
+        <item name="item05_2" type="System.DateTime"  length="14"   data="" format ="yyyyMMddHHmmss" charset=""     desc="欄位五_2"/>
+        <item name="item05_3" type="System.DateTime"  length="4"    data="" format ="hhmm" charset=""     desc="欄位五_3"/>
+      </payload>
+      <suffix s1="X" s2="Y"/>
+    </request>
+    <response>
+      <header h1="h1" h2="h2"/>
+      <payload>
+        <item name="item00" type="System.String"  length="4"   data="" format ="" charset=""     desc="欄位零"/>
+        <item name="item01" type="System.String"  length="10"  data="" format ="" charset="big5" desc="欄位一"/>
+        <item name="item02" type="System.Decimal" length="9,2" data="" format ="" charset=""     desc="欄位二"/>
+        <item name="item03" type="System.Int32"   length="9"   data="" format ="" charset=""     desc="欄位三"/>
+        <item name="item04" type="System.Char"    length="1"   data="" format ="" charset=""     desc="欄位四"/>
+        <item name="item05"   type="System.DateTime"  length="7"    data="" format ="yyyMMdd" charset=""     desc="欄位五"/>
+        <item name="item05_1" type="System.DateTime"  length="8"    data="" format ="yyyyMMdd" charset=""     desc="欄位五_1"/>
+        <item name="item05_2" type="System.DateTime"  length="14"   data="" format ="yyyyMMddHHmmss" charset=""     desc="欄位五_2"/>
+        <item name="item05_3" type="System.DateTime"  length="4"    data="" format ="hhmm" charset=""     desc="欄位五_3"/>
+      </payload>
+      <suffix s1="X" s2="Y"/>
+    </response>
+  </edi>
+  <edi name="02822" sub="JKO" desc="街口帳務">
+    <request>
+      <header h1="h1" h2="h2" h3="h3" h4="h4"/>
+      <payload>
+        <item name="item01"   type="System.String"    length="10"   data="" format ="" charset="big5" desc="欄位一"/>
+        <item name="item02"   type="System.Decimal"   length="9,2"  data="" format ="" charset=""     desc="欄位二"/>
+        <item name="item05_2" type="System.DateTime"  length="14"   data="" format ="yyyyMMddHHmmss" charset=""     desc="欄位五_2"/>
+        <item name="item05_3" type="System.DateTime"  length="4"    data="" format ="hhmm" charset=""     desc="欄位五_3"/>
+      </payload>
+      <suffix s1="X" s2="Y"/>
+    </request>
+    <response>
+      <header h1="h1" h2="h2"/>
+      <payload>
+        <item name="item00" type="System.String"  length="4"   data="" format ="" charset=""     desc="欄位零"/>
+        <item name="item01" type="System.String"  length="10"  data="" format ="" charset="big5" desc="欄位一"/>
+        <item name="item05_3" type="System.DateTime"  length="4"    data="" format ="hhmm" charset=""     desc="欄位五_3"/>
+      </payload>
+      <suffix s1="X" s2="Y"/>
+    </response>
+  </edi>
+</ediList>
