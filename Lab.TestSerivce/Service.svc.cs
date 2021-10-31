@@ -8,7 +8,7 @@
     {
         public TestExpandoRs TestExpandoRq(TestExpandoRq request)
         {
-            return new Manager().TestExpandoRq(request);
+            return new Manager(GlobalLogger.Logger).TestExpandoRq(request);
         }
     }
 }

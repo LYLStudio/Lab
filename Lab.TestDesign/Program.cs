@@ -28,11 +28,12 @@ namespace Lab.TestDesign
                 UserID = "A123456789"
             };
             rq.Payload = new Dictionary<string, object>()
-                {
-                    { "AcctID", "1010020210004150" },
-                    { "Balance", 9001.12 },
-                    { "Amt", 1.12 }
-                };
+            {
+                { "AcctID", "1010020210004150" },
+                { "Balance", 9001.12M },
+                { "Amt", 1.12M }
+            };
+
 
             using (var svc = new ServiceClient())
             {

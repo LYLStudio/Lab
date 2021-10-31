@@ -17,6 +17,7 @@ namespace Lab.TestService.Models
     public interface IResponseHeader
     {
         bool IsOK { get; set; }
+        string MsgID { get; set; }
         string StatusCode { get; set; }
         string Message { get; set; }
         string ProcessIP { get; set; }
@@ -47,6 +48,7 @@ namespace Lab.TestService.Models
         //public DateTime? RequestTime { get; set; }
 
         public bool IsOK { get; set; }
+        public string MsgID { get; set; }
         public string StatusCode { get; set; }
         public string Message { get; set; }
         public string ProcessIP { get; set; }

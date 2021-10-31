@@ -7,13 +7,17 @@
     using Lab.TestService.Models;
     using Lab.TestService.Services;
 
-    using Newtonsoft.Json;
-
     public class Manager : ManagerBase
     {
-        public override void Execute<T>(IAnything<T> anything)
+        private ILogService _logger = null;
+
+        public Manager(ILogService logger)
         {
-            var log = string.Empty;
+            _logger = logger;
+        }
+
+        public override void Preprocess<T>(IAnything<T> anything)
+        {
             Exception error = null;
             try
             {
@@ -26,14 +30,12 @@
             finally
             {
                 var p = (dynamic)anything.Parameter;
-                log = JsonConvert.SerializeObject(new
+                _logger.Log(new
                 {
-                    Time = $"{DateTime.Now:O}",
                     Request = p.RQ,
                     Response = p.RS,
                     Error = error
-                }, Formatting.Indented);
-                System.Diagnostics.Debug.WriteLine(log);
+                });
             }
         }
 
@@ -43,6 +45,7 @@
             {
                 Header = new ResponseHeader()
                 {
+                    MsgID = request.Header.MsgID,
                     Message = string.Empty,
                     ProcessIP = "127.0.0.2",
                     StatusCode = string.Empty
@@ -50,7 +53,7 @@
                 Payload = new ExpandoObject()
             };
 
-            Execute(new Anything()
+            Preprocess(new AnythingDynamic()
             {
                 Parameter = new { RQ = request, RS = response },
                 Callback = (o) =>
@@ -58,9 +61,9 @@
                     try
                     {
                         //Do Something
-                        o.RS.Payload.Balance = (decimal)o.RQ.Payload.Balance / 0;
+                        //o.RS.Payload.Balance = (decimal)o.RQ.Payload.Balance / 0;
                         o.RS.Payload.Balance = o.RQ.Payload.Balance - o.RQ.Payload.Amt;
-
+                        o.RS.Payload.PostedDate = $"{DateTime.Now:yyyy-MM-dd}";
 
                         o.RS.Header.StatusCode = "0000";
                         o.RS.Header.Message = "TestOK";
@@ -80,9 +83,5 @@
 
             return response;
         }
-    }
-
-    class Anything : Anything<dynamic>
-    {
     }
 }

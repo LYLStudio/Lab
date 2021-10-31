@@ -65,13 +65,21 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\Startup.cs" />
     <Compile Include="DoSomething\Models\TestExpandoRq.cs" />
     <Compile Include="DoSomething\Services\Manager.cs" />
     <Compile Include="IService.cs" />
+    <Compile Include="Logger\Services\LogService.cs" />
+    <Compile Include="Models\IMessage.cs" />
+    <Compile Include="Models\IRequestHeader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service.svc.cs">
       <DependentUpon>Service.svc</DependentUpon>
     </Compile>
+    <Compile Include="Models\IAnything.cs" />
+    <Compile Include="Services\ILogService.cs" />
+    <Compile Include="Services\IManager.cs" />
+    <Compile Include="Services\IThreadService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -85,19 +93,21 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.DependencyValidation.Analyzers">
+      <Version>0.11.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Owin">
+      <Version>4.2.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Owin.Host.SystemWeb">
+      <Version>4.2.0</Version>
+    </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
       <Version>13.0.1</Version>
     </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Lab.TestService.Models\Lab.TestService.Models.csproj">
-      <Project>{c0197703-bb50-4ded-a850-a59099c1fb03}</Project>
-      <Name>Lab.TestService.Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Lab.TestService.Services\Lab.TestService.Services.csproj">
-      <Project>{75556749-B877-4B7C-8101-21F003211F83}</Project>
-      <Name>Lab.TestService.Services</Name>
-    </ProjectReference>
+    <PackageReference Include="Owin">
+      <Version>1.0.0</Version>
+    </PackageReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
